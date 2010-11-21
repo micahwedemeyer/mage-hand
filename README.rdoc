@@ -1,6 +1,10 @@
 = mage-hand
 
-Description goes here.
+mage-hand is a ghostly hand that reaches across the internet to access the Obsidian Portal API. At the moment, mage-had only works with Rails Apps. Support for other things is coming soon.
+
+== Warning
+
+The Obsidian Portal API is new and in a lot of flux. mage-hand is also new and in a lot of flux. Together these make a very unstable combination. Use with caution.
 
 == Contributing to mage-hand
  
