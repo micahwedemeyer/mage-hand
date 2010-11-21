@@ -19,7 +19,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{mage-hand is a ghostly hand that reaches across the internet to access the Obsidian Portal API.}
   gem.email = "shammond@northpub.com"
   gem.authors = ["Steven Hammond"]
-  gem.add_runtime_dependency 'oauth', '>0.4.4'
+  gem.add_runtime_dependency 'oauth', '>= 0.4.4'
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
