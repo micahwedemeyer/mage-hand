@@ -1,4 +1,4 @@
-module ObPort
+module MageHand
   LOGIN_URL = 'https://www.obsidianportal.com/'
   API_URL = 'http://api.obsidianportal.com/v1/users/me.json'
   
