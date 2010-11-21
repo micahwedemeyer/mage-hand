@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mage-hand}
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Steven Hammond"]
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/mage-hand.rb",
+    "lib/ob_port/client.rb",
     "mage-hand.gemspec",
     "test/helper.rb",
     "test/test_mage-hand.rb"
