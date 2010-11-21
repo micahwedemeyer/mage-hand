@@ -13,7 +13,9 @@ module MageHand
     
     def initialize(request_token=nil, access_token=nil, callback=nil, params=nil)
       @consumer = OAuth::Consumer.new( Client.key,Client.secret, {
-        :site=>"https://www.obsidianportal.com/"})
+        :request_token_path => 'https://www.obsidianportal.com/oauth/request_token',
+        :authorize_path=> 'https://www.obsidianportal.com/oauth/authorize',
+        :access_token_path => 'https://www.obsidianportal.com/oauth/access_token'})
       if request_token
         @request_token = request_token
         @access_token = access_token || @request_token.get_access_token(

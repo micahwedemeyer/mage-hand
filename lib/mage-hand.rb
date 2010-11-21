@@ -18,6 +18,10 @@ module MageHand
     @mage_client.logged_in?
   end
   
+  def obsidian_portal
+    @mage_client.access_token
+  end
+  
   def store_tokens
     session[:request_token] = @mage_client.request_token
     session[:access_token] = @mage_client.access_token
