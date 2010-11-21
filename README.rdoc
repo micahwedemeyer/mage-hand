@@ -6,6 +6,37 @@ mage-hand is a ghostly hand that reaches across the internet to access the Obsid
 
 The Obsidian Portal API is new and in a lot of flux. mage-hand is also new and in a lot of flux. Together these make a very unstable combination. Use with caution.
 
+== Getting Started
+
+You can install mage-hand with the usual 
+
+sudo install mage-handler
+
+or you can add mage-hand to your gemfile with the following...
+
+gem 'mage-hand'
+
+== Usage
+
+Right now mage-hand only handles the OAuth authentication to Obsidian Portal. Support for the rest of the API will be coming soon. To use Obsidian Portal to authenticate a Rails Controller include MageHand and set up the before filter.
+
+class CoolController < ApplicationController
+  include MageHand
+  before_filter :obsidian_portal_login_required
+  
+This will handle all of the authenticate and redirecting etc. You will be returned to the original requested action after authentication.
+
+To make a call to the API, you have to do it directly with the full URL. obsidian_portal is a method that gets added to your controller by the include. 
+
+obsidian_portal.get('http://api.obsidianportal.com/v1/users/me.json').body
+
+== Known Issues
+
+1. You have to use the full url to make calls to the API
+
+2. A new browser session requires a new authorization to use the Obsidian Portal API
+
+
 == Contributing to mage-hand
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
