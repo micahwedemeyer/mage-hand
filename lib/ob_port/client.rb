@@ -16,7 +16,7 @@ module MageHand
       @access_token_key = session_access_token_key
       @access_token_secret = session_access_token_secret
         
-      if !logged_in? && params[:oauth_verifier]
+      if !logged_in? && params && params[:oauth_verifier]
         temp_token = @request_token.get_access_token(:oauth_verifier => params[:oauth_verifier])
         @access_token_key = temp_token.token
         @access_token_secret = temp_token.secret          
