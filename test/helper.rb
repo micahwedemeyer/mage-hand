@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'redgreen'
 require 'bundler'
 begin
   Bundler.setup(:default, :development)
@@ -9,10 +10,12 @@ rescue Bundler::BundlerError => e
 end
 require 'test/unit'
 require 'shoulda'
+require 'mocha'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'mage-hand'
+require 'oauth'
 
 class Test::Unit::TestCase
 end
