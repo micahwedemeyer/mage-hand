@@ -8,7 +8,7 @@ module MageHand
     @mage_client = MageHand::Client.new(session[:request_token], session[:access_token_key], 
       session[:access_token_secret], request.url, params)
     store_tokens
-    return true unless @mage_client.access_token.nil?
+    return true if logged_in?
 
     redirect_to @mage_client.request_token.authorize_url
     false
