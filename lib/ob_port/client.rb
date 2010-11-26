@@ -3,12 +3,11 @@ module MageHand
   API_URL = 'http://api.obsidianportal.com/v1/users/me.json'
   
   class Client
-    cattr_accessor :key, :secret
     attr_accessor :request_token, :access_token_key, :access_token_secret
     
     def self.configure(key, secret)
-      self.key = key
-      self.secret = secret
+      @@key = key
+      @@secret = secret
     end
         
     def initialize(session_request_token=nil, session_access_token_key=nil, session_access_token_secret=nil,
@@ -31,7 +30,7 @@ module MageHand
     end
     
     def consumer
-      @consumer ||= OAuth::Consumer.new( Client.key,Client.secret, {
+      @consumer ||= OAuth::Consumer.new( @@key, @@secret, {
         :site => 'http://api.obsidianportal.com',
         :request_token_url => 'https://www.obsidianportal.com/oauth/request_token',
         :authorize_url => 'https://www.obsidianportal.com/oauth/authorize',
