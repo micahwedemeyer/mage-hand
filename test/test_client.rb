@@ -21,6 +21,13 @@ class TestClient < Test::Unit::TestCase
       
       MageHand::Client.configure('asdfasdf', 'asdfasdfasdfasdfasdf')  
     end
+    should "be configured to use different urls for authentication and api access" do
+      @client = MageHand::Client.new(nil, nil, nil)
+      assert @client.consumer.site =~ /api\.obsidianportal\.com/
+      assert @client.consumer.request_token_url =~ /https:\/\/www\.obsidianportal\.com/
+      assert @client.consumer.authorize_url =~ /https:\/\/www\.obsidianportal\.com/
+      assert @client.consumer.access_token_url =~ /https:\/\/www\.obsidianportal\.com/
+    end
     should "have a request_token, and not an access token, when authorizing" do
       @client = MageHand::Client.new(nil, nil, nil)
       assert_not_nil @client
