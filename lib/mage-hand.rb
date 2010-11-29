@@ -1,4 +1,5 @@
 require 'ob_port/client'
+require 'ob_port/user'
 
 module MageHand
   
@@ -19,7 +20,7 @@ module MageHand
   end
   
   def obsidian_portal
-    @mage_client.access_token
+    @mage_client
   end
   
   def store_tokens

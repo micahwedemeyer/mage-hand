@@ -1,7 +1,4 @@
 module MageHand
-  LOGIN_URL = 'http://www.obsidianportal.com/'
-  API_URL = 'http://api.obsidianportal.com/v1/users/me.json'
-  
   class Client
     attr_accessor :request_token, :access_token_key, :access_token_secret
     
@@ -40,6 +37,10 @@ module MageHand
     def access_token
       return nil unless logged_in?
       @access_token ||= OAuth::AccessToken.new(consumer, access_token_key, access_token_secret)          
+    end
+    
+    def current_user
+      MageHand::User.new(JSON.parse(access_token.get('/v1/users/me.json').body))
     end
   end
 end
