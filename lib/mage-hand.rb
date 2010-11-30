@@ -1,5 +1,7 @@
 require 'ob_port/client'
+require 'ob_port/base'
 require 'ob_port/user'
+require 'ob_port/campaign'
 
 module MageHand
   
