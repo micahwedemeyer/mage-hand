@@ -18,7 +18,8 @@ gem 'mage-hand'
 
 == Usage
 
-Right now mage-hand only handles the OAuth authentication to Obsidian Portal. Support for the rest of the API will be coming soon. To use Obsidian Portal to authenticate a Rails Controller include MageHand and set up the before filter.
+MageHand handles the OAuth authentication to Obsidian Portal for you. To do that from a Rails controller
+try this...
 
 class CoolController < ApplicationController
   include MageHand
@@ -26,16 +27,19 @@ class CoolController < ApplicationController
   
 This will handle all of the authenticate and redirecting etc. You will be returned to the original requested action after authentication.
 
-To make a call to the API, you have to do it directly with the full URL. obsidian_portal is a method that gets added to your controller by the include. 
+You can get objects from Obsidian Portal by calling the obsidian_portal object. obsidian_portal is a method that gets added to your controller by the include. 
 
-obsidian_portal.get('http://api.obsidianportal.com/v1/users/me.json').body
+obsidian_portal.current_user will get the currently authenticated user. obsidian_portal.me will
+do the same thing.
+
+To make a direct call to the API, you have to do it through the access token. 
+
+obsidian_portal.access_token.get('/v1/users/me.json').body
 
 == Known Issues
 
-1. You have to use the full url to make calls to the API
-
-2. A new browser session requires a new authorization to use the Obsidian Portal API
-
+1. Only finding a user through current_user or me is currently supported.
+2. Should hide accesss token and have get work correctly on the obsidian_portal instance
 
 == Contributing to mage-hand
  
