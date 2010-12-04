@@ -44,6 +44,8 @@ module MageHand
     end
     alias :me :current_user
     
-    
+    def campaign(id)
+      MageHand::Campaign.new(JSON.parse(access_token.get("/v1/campaigns/#{id}.json").body))
+    end
   end
 end
