@@ -7,16 +7,14 @@ module MageHand
     
     # Private/Friends
     attr_accessor :type, :is_game_master_only, :body, :body_html, :tags
-    inflate_if_nil :body
-    inflate_if_nil :body_html
+    inflate_if_nil :body, :body_html
     
     # TODO Move these to the posts subclass when we have it.
     attr_accessor :post_title, :post_taglines, :post_time
     
     # GM Only fields
     attr_accessor :game_master_info, :game_master_info_markup
-    inflate_if_nil :game_master_info
-    inflate_if_nil :game_master_info_markup
+    inflate_if_nil :game_master_info, :game_master_info_markup
     
     def self.load_wiki_pages(campaign_id)
       wiki_hashes = JSON.parse(

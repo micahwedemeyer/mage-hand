@@ -24,12 +24,14 @@ module MageHand
       @_model_name ||= ActiveModel::Name.new(self)
     end
     
-    def self.inflate_if_nil(method_name)
+    def self.inflate_if_nil(*method_names)
       self.class_eval do
-        alias_method "#{method_name.to_s}_original".to_sym, method_name
-        define_method method_name do
-          inflate if self.send("#{method_name.to_s}_original".to_sym).nil?
-          self.send("#{method_name.to_s}_original".to_sym)
+        method_names.each do |method_name|
+          alias_method "#{method_name.to_s}_original".to_sym, method_name
+          define_method method_name do
+            inflate if self.send("#{method_name.to_s}_original".to_sym).nil?
+            self.send("#{method_name.to_s}_original".to_sym)
+          end
         end
       end
     end
