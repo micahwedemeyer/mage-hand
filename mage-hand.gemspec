@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mage-hand}
-  s.version = "0.2.1"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Steven Hammond"]
-  s.date = %q{2010-11-30}
+  s.date = %q{2011-03-03}
   s.description = %q{mage-hand is a ghostly hand that reaches across the internet to access the Obsidian Portal API.}
   s.email = %q{shammond@northpub.com}
   s.extra_rdoc_files = [
@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
     "lib/ob_port/campaign.rb",
     "lib/ob_port/client.rb",
     "lib/ob_port/user.rb",
+    "lib/ob_port/wiki_page.rb",
     "mage-hand.gemspec",
     "test/helper.rb",
     "test/test_client.rb",
@@ -51,6 +52,9 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<oauth>, [">= 0.4.4"])
+      s.add_runtime_dependency(%q<json>, [">= 0"])
+      s.add_runtime_dependency(%q<i18n>, [">= 0"])
+      s.add_runtime_dependency(%q<activesupport>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.1"])
@@ -60,6 +64,9 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<oauth>, [">= 0.4.4"])
     else
       s.add_dependency(%q<oauth>, [">= 0.4.4"])
+      s.add_dependency(%q<json>, [">= 0"])
+      s.add_dependency(%q<i18n>, [">= 0"])
+      s.add_dependency(%q<activesupport>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.1"])
@@ -70,6 +77,9 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<oauth>, [">= 0.4.4"])
+    s.add_dependency(%q<json>, [">= 0"])
+    s.add_dependency(%q<i18n>, [">= 0"])
+    s.add_dependency(%q<activesupport>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.1"])
