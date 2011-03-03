@@ -16,6 +16,9 @@ module MageHand
     attr_accessor :lat, :lng
     inflate_if_nil :lat, :lng
     
+    attr_array :players, :class_name => 'User'
+    inflate_if_nil :players
+    
     def looking_for_players?
       looking_for_players
     end

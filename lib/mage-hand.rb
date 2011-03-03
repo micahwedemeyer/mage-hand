@@ -1,5 +1,6 @@
 require 'OAuth'
 require 'json'
+require 'active_support/core_ext/string'
 require 'ob_port/client'
 require 'ob_port/base'
 require 'ob_port/user'

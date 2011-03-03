@@ -24,6 +24,27 @@ module MageHand
       @_model_name ||= ActiveModel::Name.new(self)
     end
     
+    def self.attr_array(method_name, options={})
+      self.class_eval do
+        name = method_name.to_s
+        class_name = options[:class_name] || name.singularize.classify
+        code = <<-CODE
+          def #{name}
+            @#{name}
+          end
+          
+          def #{name}=(new_#{name})
+            @#{name} = []
+            new_#{name}.each do |#{name.singularize}|
+              @#{name} << #{class_name}.new(#{name.singularize})
+            end
+          end
+        CODE
+        puts code
+        module_eval code
+      end
+    end
+    
     def self.inflate_if_nil(*method_names)
       self.class_eval do
         method_names.each do |method_name|
