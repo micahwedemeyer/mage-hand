@@ -15,7 +15,6 @@ module MageHand
     end
     
     def inflate
-      puts "Inflating wiki page with id: #{self.id}"
       hash = JSON.parse( MageHand::client.access_token.get(individual_url).body)
       update_attributes!(hash)
     end

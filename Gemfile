@@ -5,7 +5,7 @@ source "http://rubygems.org"
 gem "oauth", ">= 0.4.4"
 gem "json"
 gem 'i18n'
-gem 'activesupport
+gem 'activesupport'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
